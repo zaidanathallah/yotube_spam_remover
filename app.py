@@ -22,7 +22,7 @@ if os.path.exists("credentials.json"):
     flow = Flow.from_client_secrets_file(
         'credentials.json',
         scopes=SCOPES,
-        redirect_uri='urn:ietf:wg:oauth:2.0:oob'
+        redirect_uri='https://yotubespamremover.streamlit.app/'  # Ganti sesuai port streamlit
     )
     auth_url, _ = flow.authorization_url(prompt='consent')
     st.markdown(f"[Klik di sini untuk authorize Google]({auth_url})")
