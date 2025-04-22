@@ -1,4 +1,3 @@
-
 import streamlit as st
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -21,7 +20,7 @@ if credentials_file:
 if os.path.exists("credentials.json"):
     if st.button("Authorize via Google"):
         flow = InstalledAppFlow.from_client_secrets_file("credentials.json", SCOPES)
-        creds = flow.run_local_server(port=0)
+        creds = flow.run_console()  # GANTI INI
         with open("token.json", "w") as token:
             token.write(creds.to_json())
         st.success("Token berhasil dibuat!")
